@@ -1,0 +1,54 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: url("../img/emoji.gif") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* full screen clickable */
+.full-link {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* center text */
+.center-text {
+  text-align: center;
+  transform: translateY(-30px); /* slightly higher so it feels centered */
+}
+
+/* title */
+.center-text h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: 72px;
+  margin: 0;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.center-text p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  margin-top: 14px;
+  letter-spacing: 5px;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+/* subtitle */
+.center-text p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  margin: 14px 0 0 0;
+  letter-spacing: 5px;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}

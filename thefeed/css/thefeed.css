@@ -1,0 +1,210 @@
+/* ===================================== */
+/* 🌸 GLOBAL BACKGROUND */
+/* ===================================== */
+body{
+  margin: 0;
+  padding: 90px 20px 60px;
+  font-family: "Quicksand", sans-serif;
+  color: #4b3b5a;
+
+  background-image: url("../../img/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ===================================== */
+/* 💕 BACK BUTTON */
+/* ===================================== */
+.back-btn{
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  z-index: 999;
+
+  text-decoration: none;
+  background: linear-gradient(90deg, #f6a6c9, #ffd8a8);
+  padding: 10px 22px;
+  border-radius: 30px;
+
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+
+  box-shadow: 0 8px 18px rgba(246,166,201,0.25);
+  transition: 0.25s ease;
+}
+
+.back-btn:hover{
+  transform: scale(1.05);
+}
+
+/* ===================================== */
+/* 🎀 MINI DIARY TOP BOX */
+/* ===================================== */
+.top-banner{
+  max-width: 1000px;          /* ⬅️ makes it smaller */
+  margin: 0 auto 70px auto;  /* ⬅️ centers it perfectly */
+  padding: 35px 45px;
+
+  background: rgba(255,255,255,0.92);
+  border-radius: 30px;
+  border: 3px solid #f6a6c9;
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.07),
+    0 18px 45px rgba(246,166,201,0.22);
+
+  backdrop-filter: blur(8px);
+
+  text-align: center;        /* ⬅️ centers the text */
+}
+
+.top-label{
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+
+.top-text{
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 0;
+}
+
+/* ===================================== */
+/* 🧁 MAIN LAYOUT */
+/* ===================================== */
+.page{
+  max-width: 1100px;
+  margin: 0 auto;
+  
+
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px; /* ✅ more gap between left card + feed */
+  align-items: start;
+}
+
+.media img,
+.media video{
+  width: min(100px, 50vw);   /* slightly smaller width */
+  max-height: 600px;         /* 👈 THIS makes them shorter */
+  object-fit: cover;         /* crops nicely instead of stretching */
+  display: block;
+
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+}
+
+/* ===================================== */
+/* 🍬 INTRO CARD */
+/* ===================================== */
+.intro-card{
+  position:sticky;
+  top: 90px;
+
+  padding: 26px;
+  border-radius: 26px;
+  text-align: center;  
+  background: rgba(255,255,255,0.82);
+
+  border: 3px solid #f6a6c9;
+
+  /* ✅ nicer shadow */
+  box-shadow:
+    0 18px 35px rgba(246,166,201,0.18),
+    0 8px 18px rgba(0,0,0,0.04);
+
+  backdrop-filter: blur(10px);
+}
+
+/* ===================================== */
+/* 🌷 ENTRY CARD */
+/* ===================================== */
+.entry{
+  background: rgba(255,255,255,0.88);
+  border-radius: 30px;
+
+  /* ✅ more breathing room + border spacing */
+  padding: 34px;
+
+  border: 3px solid #f6a6c9;
+
+  /* ✅ more depth */
+  box-shadow:
+    0 22px 45px rgba(246,166,201,0.20),
+    0 10px 22px rgba(0,0,0,0.05);
+
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  /* ✅ spacing between items inside each entry */
+  gap: 18px;
+}
+
+/* ✅ gap between multiple entry cards */
+.entry + .entry{
+  margin-top: 40px;
+}
+
+/* ===================================== */
+/* 🖼 IMAGE FRAME */
+/* ===================================== */
+.media{
+  position: relative;
+
+  /* ✅ gap between border + image (this is what you want) */
+  padding: 16px;
+
+  background: rgba(255,255,255,0.55);
+  border-radius: 28px;
+  margin-bottom: 0; /* we use gap on .entry now */
+
+  border: 3px solid #f6a6c9;
+
+  /* ✅ shadow for the media frame */
+  box-shadow:
+    0 16px 35px rgba(246,166,201,0.20),
+    0 8px 18px rgba(0,0,0,0.05);
+}
+
+/* REMOVE yellow tape completely */
+.media::before{
+  display: none;
+}
+
+/* image / video */
+.media img,
+.media video{
+  width: min(520px, 75vw); /* ✅ slightly bigger, still responsive */
+  display: block;
+
+  border-radius: 22px;
+  border: none;
+
+  /* ✅ shadow on the actual image too */
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+}
+
+/* ===================================== */
+/* ✍️ TEXT */
+/* ===================================== */
+.entry-title{
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  margin: 0; /* ✅ gap handled by .entry */
+}
+
+.entry-desc{
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0; /* ✅ gap handled by .entry */
+  opacity: 0.9;
+}
