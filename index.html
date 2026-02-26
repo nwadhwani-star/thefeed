@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Google Fonts (girly + clean) -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/index.css">
@@ -11,12 +11,28 @@
 </head>
 
 <body>
+
   <a href="thefeed/thefeed.html" class="full-link" aria-label="Go to Neeral’s Feed">
     <div class="center-text">
-      <h1>NEERAL’S FEED <span class="heart">♡</span></h1>
+    
+        <h1 class="logo-title">NEERAL’S FEED <span class="heart">♡</span></h1>
+      
       <p>BOWS, CAFÉS &amp; CAMPUS DAYS</p>
     </div>
   </a>
 </body>
 </html>
+<script>
+const cherry = document.createElement("div");
+cherry.innerHTML = "🍒";
+cherry.style.position = "fixed";
+cherry.style.pointerEvents = "none";
+cherry.style.fontSize = "24px";
+cherry.style.zIndex = "9999";
+document.body.appendChild(cherry);
 
+document.addEventListener("mousemove", (e) => {
+  cherry.style.left = e.clientX + "px";
+  cherry.style.top = e.clientY + "px";
+});
+</script>

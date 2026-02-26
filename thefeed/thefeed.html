@@ -7,7 +7,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/thefeed.css" />
   <title>The Feed</title>
@@ -16,33 +16,41 @@
 <body>
 
   <!-- Back button -->
-  <a class="back-btn" href="../index.html">BACK</a>
+  <a href="../index.html" class="teddy-back">
+    <img src="../img/teddy.png" alt="Back to Home">
+    <span class="teddy-text">Take me home ♡</span>
+  </a>
 
-  <!-- Top welcome banner -->
-  <section class="top-banner">
-    <div class="top-label">NEERAL’S FEED 🎀</div>
-    <p class="top-text">
-     A little corner of the internet where I document my everyday moments — campus life, small adventures, cozy routines, and everything in between. It’s a collection of memories, moods, and milestones that reflect who I am and who I’m becoming.
-    </p>
-  </section>
+  <!-- Title -->
+  <div class="page-title">
+    <h1>NEERAL’S FEED <span class="bow">🎀</span></h1>
+  </div>
 
   <main class="page">
 
-    <!-- left intro card -->
-    <aside class="intro-card">
-      <h1 class="intro-title">The Face Behind It</h1>
-      <hr class="divider" />
+    <!-- LEFT: intro area -->
+    <div class="intro-wrap">
 
-      <div class="intro-box">
-       I’m Neeral Wadhwani,a Business Analytics major with a UX/UI minor, part data girl and part creative soul. As an international student from India and i am navigating college life, I’m constantly balancing logic and design while chasing big goals and romanticizing the small details. I care about growth, good food, meaningful friendships, and becoming the best version of myself
+      <!-- portrait floats ABOVE the card (doesn't move the box) -->
+      <div class="floating-portrait">
+        <!-- ✅ put your watercolor image file name here -->
+        <img src="../img/watercolor.png" alt="Watercolor portrait">
       </div>
 
-     
+      <aside class="intro-card floaty">
+        <h1 class="intro-title">The Face Behind It</h1>
+        <hr class="divider" />
 
-      
-    </aside>
+        <div class="intro-box">
+          I’m Neeral Wadhwani, a Business Analytics major with a UX/UI minor, part data girl and part creative soul.
+          As an international student from India navigating college life, I’m constantly balancing logic and design while chasing big goals
+          and romanticizing the small details. I care about growth, good food, meaningful friendships, and becoming the best version of myself.
+        </div>
+      </aside>
 
-    <!-- feed -->
+    </div>
+
+    <!-- RIGHT: feed -->
     <section class="feed">
 
       <article class="entry">
@@ -156,6 +164,22 @@
 
     </section>
   </main>
+
+  <!-- Cherry cursor -->
+  <script>
+    const cherry = document.createElement("div");
+    cherry.innerHTML = "🍒";
+    cherry.style.position = "fixed";
+    cherry.style.pointerEvents = "none";
+    cherry.style.fontSize = "24px";
+    cherry.style.zIndex = "9999";
+    document.body.appendChild(cherry);
+
+    document.addEventListener("mousemove", (e) => {
+      cherry.style.left = (e.clientX + 10) + "px";
+      cherry.style.top = (e.clientY + 10) + "px";
+    });
+  </script>
 
 </body>
 </html>

@@ -1,12 +1,30 @@
 /* ===================================== */
-/* 🌸 GLOBAL BACKGROUND */
+/* 🍒 THEFEED.CSS (FULL COPY/PASTE) */
 /* ===================================== */
+
+:root{
+  --ink: #4b3b5a;
+  --title: #3f2f52;
+
+  --cherry: rgba(214, 74, 90, 0.55);
+  --cherry-soft: rgba(214, 74, 90, 0.32);
+
+  --white-glass: rgba(255,255,255,0.86);
+  --white-glass-2: rgba(255,255,255,0.62);
+
+  --shadow-soft: rgba(0,0,0,0.05);
+  --shadow-cherry: rgba(214, 74, 90, 0.14);
+}
+
+*{ box-sizing: border-box; }
+
 body{
   margin: 0;
   padding: 90px 20px 60px;
   font-family: "Quicksand", sans-serif;
-  color: #4b3b5a;
+  color: var(--ink);
 
+  /* ✅ your background is BACK */
   background-image: url("../../img/background.png");
   background-size: cover;
   background-position: center;
@@ -14,127 +32,199 @@ body{
   background-attachment: fixed;
 }
 
+/* hide normal cursor since you use emoji cursor */
+html, body, *{
+  cursor: none;
+}
+
 /* ===================================== */
-/* 💕 BACK BUTTON */
+/* 🧸 TEDDY BACK */
 /* ===================================== */
-.back-btn{
+.teddy-back{
   position: fixed;
-  top: 28px;
-  left: 28px;
-  z-index: 999;
+  top: 0;
+  left: 0;
+  z-index: 99999;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-decoration: none;
-  background: linear-gradient(90deg, #f6a6c9, #ffd8a8);
-  padding: 10px 22px;
-  border-radius: 30px;
+}
 
-  color: white;
-  font-weight: 700;
+.teddy-back img{
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+.teddy-text{
+  margin-top: 4px;
   font-size: 14px;
+  color: #b85c6b;
+  background: rgba(255,255,255,0.95);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #f0b7c2;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  white-space: nowrap;
 
-  box-shadow: 0 8px 18px rgba(246,166,201,0.25);
+  opacity: 0;
+  transform: translateY(-6px);
   transition: 0.25s ease;
+  pointer-events: none;
 }
 
-.back-btn:hover{
-  transform: scale(1.05);
+.teddy-back:hover .teddy-text,
+.teddy-back:focus .teddy-text,
+.teddy-back:focus-within .teddy-text{
+  opacity: 1;
+  transform: translateY(0);
 }
+
+.teddy-back:focus{ outline: none; }
 
 /* ===================================== */
-/* 🎀 MINI DIARY TOP BOX */
+/* 🎀 PAGE TITLE */
 /* ===================================== */
-.top-banner{
-  max-width: 1000px;          /* ⬅️ makes it smaller */
-  margin: 0 auto 70px auto;  /* ⬅️ centers it perfectly */
-  padding: 35px 45px;
-
-  background: rgba(255,255,255,0.92);
-  border-radius: 30px;
-  border: 3px solid #f6a6c9;
-
-  box-shadow:
-    0 30px 70px rgba(0,0,0,0.07),
-    0 18px 45px rgba(246,166,201,0.22);
-
-  backdrop-filter: blur(8px);
-
-  text-align: center;        /* ⬅️ centers the text */
+.page-title{
+  max-width: 1100px;
+  margin: 0 auto 34px auto;
+  text-align: center;
 }
 
-.top-label{
+.page-title h1{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 26px;
+  border-radius: 999px;
+
   font-family: "Playfair Display", serif;
-  font-size: 32px;
-  margin-bottom: 18px;
+  font-size: 36px;
+  letter-spacing: 1px;
+
+  color: var(--title);
+  background: rgba(255,255,255,0.58);
+
+  border: 2px solid var(--cherry-soft);
+  box-shadow:
+    0 14px 35px var(--shadow-cherry),
+    0 8px 22px var(--shadow-soft);
+
+  backdrop-filter: blur(10px);
 }
 
-.top-text{
-  font-size: 16px;
-  line-height: 1.9;
-  margin: 0;
+.page-title .bow{
+  display: inline-block;
+  transform: translateY(1px);
+  filter: drop-shadow(0 6px 12px rgba(214, 74, 90, 0.25));
 }
 
 /* ===================================== */
 /* 🧁 MAIN LAYOUT */
 /* ===================================== */
 .page{
-  max-width: 1100px;
+  max-width: 1150px;
   margin: 0 auto;
-  
 
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 32px; /* ✅ more gap between left card + feed */
-  align-items: start;
+  grid-template-columns: 430px 1fr;
+  gap: 34px;
+
+  /* ✅ key: make left column stretch to the height of the feed column */
+  align-items: stretch;
 }
 
-.media img,
-.media video{
-  width: min(100px, 50vw);   /* slightly smaller width */
-  max-height: 600px;         /* 👈 THIS makes them shorter */
-  object-fit: cover;         /* crops nicely instead of stretching */
-  display: block;
+/* ===================================== */
+/* ✅ INTRO WRAP + FLOATING PORTRAIT */
+/* This is the key part: portrait DOES NOT move the box */
+/* ===================================== */
+.intro-wrap{
+  position: relative;
+  padding-top: 70px; /* reserves space ABOVE the card so portrait has room */
+ 
+}
 
-  border-radius: 22px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+.floating-portrait{
+  position: absolute;
+  top: 0;            /* sits inside the reserved space */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.floating-portrait img{
+  width: 95px;       /* small + cute */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 18px rgba(214, 74, 90, 0.18));
 }
 
 /* ===================================== */
 /* 🍬 INTRO CARD */
 /* ===================================== */
+/* ===================================== */
+/* 🍬 INTRO CARD */
+/* ===================================== */
 .intro-card{
-  position:sticky;
-  top: 90px;
+  position: relative;          /* scrolls normally */
+  width: 500px;                /* bigger */
+  max-width: 100%;
+  margin: 0 auto;              /* center */
+  padding: 55px;               /* bigger inside spacing */
+  border-radius: 32px;
+  text-align: center;
 
-  padding: 26px;
-  border-radius: 26px;
-  text-align: center;  
-  background: rgba(255,255,255,0.82);
+  background: var(--white-glass);
+  border: 2.5px solid var(--cherry);
 
-  border: 3px solid #f6a6c9;
-
-  /* ✅ nicer shadow */
   box-shadow:
-    0 18px 35px rgba(246,166,201,0.18),
-    0 8px 18px rgba(0,0,0,0.04);
+    0 22px 55px var(--shadow-cherry),
+    0 10px 22px rgba(0,0,0,0.04);
 
   backdrop-filter: blur(10px);
+
+  /* HARD STOP any animation */
+  animation: none !important;
+  transform: none !important;
+}
+
+.intro-title{
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  margin: 0 0 10px 0;
+  color: var(--title);
+}
+
+.divider{
+  border: none;
+  height: 1.5px;
+  width: 78%;
+  margin: 10px auto 18px auto;
+  background: rgba(63,47,82,0.28);
+  border-radius: 999px;
+}
+
+.intro-box{
+  font-size: 17px;
+  line-height: 1.85;
+  opacity: 0.95;
 }
 
 /* ===================================== */
-/* 🌷 ENTRY CARD */
+/* 🌷 FEED ENTRIES */
 /* ===================================== */
 .entry{
   background: rgba(255,255,255,0.88);
   border-radius: 30px;
-
-  /* ✅ more breathing room + border spacing */
   padding: 34px;
 
-  border: 3px solid #f6a6c9;
-
-  /* ✅ more depth */
+  border: 2.5px solid var(--cherry);
   box-shadow:
-    0 22px 45px rgba(246,166,201,0.20),
+    0 22px 55px var(--shadow-cherry),
     0 10px 22px rgba(0,0,0,0.05);
 
   backdrop-filter: blur(8px);
@@ -143,68 +233,85 @@ body{
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  /* ✅ spacing between items inside each entry */
   gap: 18px;
+
+  /* ✅ no movement */
+  transition: box-shadow 0.25s ease;
 }
 
-/* ✅ gap between multiple entry cards */
 .entry + .entry{
   margin-top: 40px;
 }
 
-/* ===================================== */
-/* 🖼 IMAGE FRAME */
-/* ===================================== */
-.media{
-  position: relative;
-
-  /* ✅ gap between border + image (this is what you want) */
-  padding: 16px;
-
-  background: rgba(255,255,255,0.55);
-  border-radius: 28px;
-  margin-bottom: 0; /* we use gap on .entry now */
-
-  border: 3px solid #f6a6c9;
-
-  /* ✅ shadow for the media frame */
+.entry:hover,
+.intro-card:hover{
   box-shadow:
-    0 16px 35px rgba(246,166,201,0.20),
-    0 8px 18px rgba(0,0,0,0.05);
+    0 28px 70px rgba(214, 74, 90, 0.18),
+    0 12px 26px rgba(0,0,0,0.06);
 }
 
-/* REMOVE yellow tape completely */
-.media::before{
-  display: none;
+.mini-label{
+  margin: 0;
+  font-size: 15px;
+  opacity: 0.9;
 }
 
-/* image / video */
-.media img,
-.media video{
-  width: min(520px, 75vw); /* ✅ slightly bigger, still responsive */
-  display: block;
-
-  border-radius: 22px;
-  border: none;
-
-  /* ✅ shadow on the actual image too */
-  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
-}
-
-/* ===================================== */
-/* ✍️ TEXT */
-/* ===================================== */
 .entry-title{
   font-family: "Playfair Display", serif;
   font-size: 30px;
-  margin: 0; /* ✅ gap handled by .entry */
+  margin: 0;
+  color: var(--title);
 }
 
 .entry-desc{
   font-size: 16px;
   line-height: 1.8;
   max-width: 520px;
-  margin: 0; /* ✅ gap handled by .entry */
+  margin: 0;
   opacity: 0.9;
+}
+
+/* ===================================== */
+/* 🖼 MEDIA FRAME */
+/* ===================================== */
+.media{
+  position: relative;
+  padding: 16px;
+
+  background: var(--white-glass-2);
+  border-radius: 28px;
+
+  border: 2.5px solid var(--cherry);
+  box-shadow:
+    0 16px 40px var(--shadow-cherry),
+    0 8px 18px rgba(0,0,0,0.05);
+}
+
+.media img,
+.media video{
+  width: min(520px, 75vw);
+  max-height: 640px;
+  object-fit: cover;
+  display: block;
+
+  border-radius: 22px;
+  border: none;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+}
+
+/* ===================================== */
+/* 📱 RESPONSIVE */
+/* ===================================== */
+@media (max-width: 980px){
+  .page{
+    grid-template-columns: 1fr;
+  }
+
+  .intro-wrap{
+    padding-top: 80px;
+  }
+
+  .floating-portrait img{
+    width: 90px;
+  }
 }
