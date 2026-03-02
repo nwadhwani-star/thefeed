@@ -38,143 +38,185 @@ html, body, *{
 }
 
 /* ===================================== */
-/* 🧸 TEDDY BACK */
+/* 🏠 TAKE ME HOME (NO TEDDY) */
 /* ===================================== */
 .teddy-back{
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 18px;
+  left: 18px;
   z-index: 99999;
 
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
+
   text-decoration: none;
+
+  background: rgba(255,255,255,0.92);
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  border: 1.5px solid rgba(214, 74, 90, 0.35);
+  box-shadow: 0 10px 22px rgba(214, 74, 90, 0.14);
+
+  color: #b85c6b;
+  font-size: 14px;
+  transition: 0.25s ease;
 }
 
 .teddy-back img{
-  width: 120px;
-  height: auto;
-  display: block;
+  display: none; /* ✅ teddy removed */
 }
 
 .teddy-text{
-  margin-top: 4px;
+  margin: 0;
   font-size: 14px;
   color: #b85c6b;
-  background: rgba(255,255,255,0.95);
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1.5px solid #f0b7c2;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
   white-space: nowrap;
 
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: 0.25s ease;
-  pointer-events: none;
-}
-
-.teddy-back:hover .teddy-text,
-.teddy-back:focus .teddy-text,
-.teddy-back:focus-within .teddy-text{
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  transition: none;
+  pointer-events: auto;
 }
 
-.teddy-back:focus{ outline: none; }
+.teddy-back:hover{
+  transform: translateY(-2px);
+  background: rgba(214, 74, 90, 0.12);
+  border-color: rgba(214, 74, 90, 0.55);
+  box-shadow: 0 14px 28px rgba(214, 74, 90, 0.20);
+}
 
 /* ===================================== */
 /* 🎀 PAGE TITLE */
 /* ===================================== */
+/* ===================================== */
+/* 🎀 CENTERED MAIN TITLE */
+/* ===================================== */
+
 .page-title{
-  max-width: 1100px;
-  margin: 0 auto 34px auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
   text-align: center;
 }
 
 .page-title h1{
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 
-  padding: 14px 26px;
+  padding: 16px 38px;
   border-radius: 999px;
 
   font-family: "Playfair Display", serif;
-  font-size: 36px;
-  letter-spacing: 1px;
+  font-size: 42px;             /* slightly bigger */
+  letter-spacing: 0.5px;
 
-  color: var(--title);
-  background: rgba(255,255,255,0.58);
+  color: #7a3e52;              /* softer plum (not black) */
 
-  border: 2px solid var(--cherry-soft);
+  background: rgba(255,255,255,0.65);
+  border: 2px solid rgba(214,74,90,0.35);
+
   box-shadow:
-    0 14px 35px var(--shadow-cherry),
-    0 8px 22px var(--shadow-soft);
+    0 18px 40px rgba(214,74,90,0.15),
+    0 6px 16px rgba(0,0,0,0.05);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+
+  transition: 0.3s ease;
 }
 
-.page-title .bow{
-  display: inline-block;
-  transform: translateY(1px);
-  filter: drop-shadow(0 6px 12px rgba(214, 74, 90, 0.25));
+.page-title h1:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 22px 50px rgba(214,74,90,0.25),
+    0 8px 18px rgba(0,0,0,0.06);
 }
+
+
 
 /* ===================================== */
 /* 🧁 MAIN LAYOUT */
 /* ===================================== */
 .page{
-  max-width: 1150px;
+  max-width: 1100px;
   margin: 0 auto;
-
   display: grid;
-  grid-template-columns: 430px 1fr;
+  grid-template-columns: 420px 1fr; /* left box + right feed */
   gap: 34px;
-
-  /* ✅ key: make left column stretch to the height of the feed column */
-  align-items: stretch;
+  align-items: start;
 }
 
 /* ===================================== */
 /* ✅ INTRO WRAP + FLOATING PORTRAIT */
-/* This is the key part: portrait DOES NOT move the box */
 /* ===================================== */
 .intro-wrap{
-  position: relative;
-  padding-top: 70px; /* reserves space ABOVE the card so portrait has room */
- 
+  position: sticky;
+  top: 120px;          /* change this number to match where the right big box starts */
+  align-self: start;
+  height: fit-content;
 }
+
+/* ===================================== */
+/* ✨ FLOATING PORTRAIT (SMALLER WHITE BASE) */
+/* ===================================== */
+
 
 .floating-portrait{
   position: absolute;
-  top: 0;            /* sits inside the reserved space */
+  top: -100px;          /* higher */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 20;
   pointer-events: none;
 }
 
-.floating-portrait img{
-  width: 95px;       /* small + cute */
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 12px 18px rgba(214, 74, 90, 0.18));
+/* White circle background */
+.floating-portrait::before{
+  content: "";
+  position: absolute;
+  width: 175px;          /* visible but not huge */
+  height: 175px;
+  border-radius: 50%;
+  background: #ffffff;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
-/* ===================================== */
-/* 🍬 INTRO CARD */
-/* ===================================== */
+/* Portrait image */
+.floating-portrait img{
+  width: 150px;          /* smaller than white circle */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+
+  border: none;
+  box-shadow: none;
+}
+  
+
+
 /* ===================================== */
 /* 🍬 INTRO CARD */
 /* ===================================== */
 .intro-card{
-  position: relative;          /* scrolls normally */
-  width: 500px;                /* bigger */
+  position: relative;          
+  width: 500px;                
   max-width: 100%;
-  margin: 0 auto;              /* center */
-  padding: 55px;               /* bigger inside spacing */
+  margin: 0 auto;              
+  padding: 55px;               
   border-radius: 32px;
   text-align: center;
 
@@ -187,16 +229,16 @@ html, body, *{
 
   backdrop-filter: blur(10px);
 
-  /* HARD STOP any animation */
   animation: none !important;
   transform: none !important;
 }
 
 .intro-title{
   font-family: "Playfair Display", serif;
-  font-size: 38px;
-  margin: 0 0 10px 0;
-  color: var(--title);
+  font-size: 36px;
+  font-weight: 600;   /* ← this one line softens it */
+  letter-spacing: 0.5px;
+  color: #4a355d;
 }
 
 .divider{
@@ -235,7 +277,6 @@ html, body, *{
   text-align: center;
   gap: 18px;
 
-  /* ✅ no movement */
   transition: box-shadow 0.25s ease;
 }
 
@@ -312,6 +353,12 @@ html, body, *{
   }
 
   .floating-portrait img{
-    width: 90px;
+    width: 105px;
+    height: 105px;
+  }
+
+  .floating-portrait::before{
+    width: 130px;
+    height: 130px;
   }
 }

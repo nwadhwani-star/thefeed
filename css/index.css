@@ -3,12 +3,19 @@ html, body {
   height: 100%;
 }
 
+/* ===================================== */
+/* 🎀 Background */
+/* ===================================== */
+
 body {
   background: url("../img/emoji.gif") no-repeat center center fixed;
   background-size: cover;
 }
 
-/* full screen clickable */
+/* ===================================== */
+/* 💖 Full screen clickable */
+/* ===================================== */
+
 .full-link {
   position: fixed;
   inset: 0;
@@ -18,60 +25,77 @@ body {
   text-decoration: none;
 }
 
-/* center text */
+/* ===================================== */
+/* ✨ Center text */
+/* ===================================== */
+
 .center-text {
   text-align: center;
-  transform: translateY(-30px); /* slightly higher so it feels centered */
+  transform: translateY(-40px);
 }
 
-/* title */
-.center-text h1 {
+/* ===================================== */
+/* 🌸 MAIN TITLE */
+/* ===================================== */
+
+.logo-title {
+  display: inline-block;
   font-family: "DM Serif Display", serif;
-  font-size: 72px;
+  font-size: 78px;
   margin: 0;
   letter-spacing: 3px;
+
   color: #ffffff;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+  text-shadow:
+    0 8px 22px rgba(0,0,0,0.18),
+    0 0 30px rgba(255,255,255,0.25);
+
+  transition: 
+    transform 0.18s ease,
+    text-shadow 0.18s ease,
+    color 0.25s ease;
 }
 
-.center-text p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  margin-top: 14px;
-  letter-spacing: 5px;
-  color: #ffffff;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.1);
+/* 🍒 Hover cherry effect */
+.logo-title:hover {
+  color: #d94b63;
+
+  transform: scale(1.05);
+
+  text-shadow:
+    0 0 18px rgba(217, 75, 99, 0.65),
+    0 0 40px rgba(217, 75, 99, 0.35),
+    0 10px 22px rgba(0,0,0,0.15);
 }
 
-/* subtitle */
-.center-text p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  margin: 14px 0 0 0;
-  letter-spacing: 5px;
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 6px 18px rgba(0,0,0,0.18);
-}
+/* ===================================== */
+/* 🍒 SUBTITLE FIXED */
+/* ===================================== */
 
-html, body, * {
-  cursor: none;
-}
+/* ===================================== */
+/* 🍒 FORCE STYLE FOR SUBTITLE */
+/* ===================================== */
 
-/* Hide default cursor */
+.center-text p,
+.center-text h3 {
+  text-align: center !important;
+
+  font-family: "DM Serif Display", serif !important;
+  font-size: 20px !important;
+
+  letter-spacing: 2px !important;
+  font-weight: 500 !important;
+
+  color: #e0637b !important;
+
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+/* ===================================== */
+/* 🖱 Hide default cursor */
+/* ===================================== */
+
 html, body, * {
   cursor: none !important;
-}
-.logo-title{
-  display:inline-block;
-  color: rgba(255,255,255,0.96);
-  text-shadow: 0 6px 16px rgba(0,0,0,0.10);
-  transition: transform 0.18s ease, text-shadow 0.18s ease;
-}
-
-.logo-title:hover{
-  transform: scale(1.05);
-  text-shadow:
-    0 0 10px rgba(255,170,210,0.55),
-    0 0 22px rgba(255,170,210,0.35),
-    0 8px 18px rgba(0,0,0,0.10);
 }
