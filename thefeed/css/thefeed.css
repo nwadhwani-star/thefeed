@@ -104,34 +104,37 @@ html, body, *{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+
+  margin-top: -10px;   /* 👈 moves it up */
+  margin-bottom: 40px; /* slightly tighter */
+
   text-align: center;
 }
 
 .page-title h1{
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
+   display: inline-flex;
+   align-items: center;
+   gap: 12px;
 
-  padding: 16px 38px;
-  border-radius: 999px;
+   padding: 16px 38px;
+   border-radius: 999px;
 
-  font-family: "Playfair Display", serif;
-  font-size: 42px;             /* slightly bigger */
-  letter-spacing: 0.5px;
+   font-family: "Playfair Display", serif;
+   font-size: 30px;
+   letter-spacing: 0.5px;
 
-  color: #7a3e52;              /* softer plum (not black) */
+   color: #7a3e52;
 
-  background: rgba(255,255,255,0.65);
-  border: 2px solid rgba(214,74,90,0.35);
+   background: rgba(255,255,255,0.65);
 
-  box-shadow:
-    0 18px 40px rgba(214,74,90,0.15),
-    0 6px 16px rgba(0,0,0,0.05);
+   border: 2.5px solid var(--cherry); /* 👈 SAME BORDER */
 
-  backdrop-filter: blur(12px);
+   box-shadow:
+     0 18px 40px rgba(214,74,90,0.15),
+     0 6px 16px rgba(0,0,0,0.05);
 
-  transition: 0.3s ease;
+   backdrop-filter: blur(12px);
+   transition: 0.3s ease;
 }
 
 .page-title h1:hover{
@@ -170,42 +173,49 @@ html, body, *{
 /* ===================================== */
 
 
+/* ✨ FLOATING PORTRAIT (AESTHETIC + ATTACHED) */
 .floating-portrait{
   position: absolute;
-  top: -100px;          /* higher */
+  top: -92px;              /* slight adjust: makes it sit nicer */
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
   pointer-events: none;
 }
 
-/* White circle background */
+/* soft “glass badge” behind the portrait (not white) */
 .floating-portrait::before{
   content: "";
   position: absolute;
-  width: 175px;          /* visible but not huge */
-  height: 175px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  background: #ffffff;
+
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(10px);
 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+
+  border: 2.5px solid var(--cherry); /* 👈 matches card border exactly */
 }
 
-/* Portrait image */
 .floating-portrait img{
-  width: 150px;          /* smaller than white circle */
-  height: 150px;
+  width: 146px;
+  height: 146px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
 
-  border: none;
-  box-shadow: none;
+
+
+  /* soft depth */
+  box-shadow:
+    0 14px 34px rgba(214, 74, 90, 0.18),
+    0 10px 22px rgba(0,0,0,0.06);
 }
-  
 
 
 /* ===================================== */
